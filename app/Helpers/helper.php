@@ -1,0 +1,28 @@
+<?php
+
+if (! function_exists('moneyFormat')) {
+    /**
+     * moneyFormat
+     *
+     * @param mixed $str
+     * @return string
+     */
+    function moneyFormat($str) {
+        return 'Rp' . number_format($str, '0', '', '.');
+    }
+}
+
+if (! function_exists('dateID')) {
+    /**
+     * dateID
+     *
+     * @param mixed $tanggal
+     * @return string
+     */
+    function dateID($tanggal) {
+        $value = \Carbon\Carbon::parse($tanggal);
+        $parse = $value->locale('id');
+
+        return $parse->translatedFormat('l, d F Y');
+    }
+}
